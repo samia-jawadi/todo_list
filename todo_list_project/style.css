@@ -1,0 +1,194 @@
+/* Importing a nice modern font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset all default browser styles to avoid inconsistencies */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes padding not affect element width */
+}
+
+/* Body styling - the entire page */
+body {
+    display: flex;
+    font-family: "Jost", sans-serif; /* Using our imported font */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: url(back.jpg) no-repeat center center/cover; /* Nice background image */
+}
+
+/* Container for our todo app */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px; /* Some breathing room on small screens */
+}
+
+/* The actual todo app with that fancy glass effect */
+.todo-app {
+    width: 100%;
+    max-width: 400px; /* Doesn't get too wide on big screens */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between elements */
+    color: #fff;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    border: 3px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+    backdrop-filter: blur(10px); /* The magic glass effect! */
+}
+
+/* App title styling */
+.todo-app h1 {
+    font-size: 2rem;
+}
+
+/* The input area where you add new tasks */
+.input-area {
+    display: flex;
+    width: 100%;
+}
+
+/* The task input field */
+.input-area input {
+    flex: 1; /* Takes up all available space */
+    padding: 10px 17px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 22px; /* Rounded like a pill */
+    background: rgba(255, 194, 209, 0.3); /* Semi-transparent pink */
+    color: #dbdbdb;
+}
+
+/* Placeholder text styling */
+.input-area input::placeholder {
+    color: #bcbcbc;
+}
+
+/* The add task button */
+.input-area button {
+    padding: 8px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 50%; /* Perfect circle */
+    color: #fff;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.18); /* Semi-transparent white */
+    cursor: pointer;
+    transition: all 0.2s ease; /* Smooth hover effects */
+}
+
+/* Button gets bigger and changes color when hovered */
+.input-area button:hover {
+    transform: scale(1.1);
+    background: #ff6f91; /* Pretty pink color */
+}
+
+/* Container for the todo list */
+.todos-container {
+    width: 100%;
+}
+
+/* The actual list of tasks */
+#task-list {
+    width: 100%;
+    list-style: none; /* Removes bullet points */
+}
+
+/* Individual task items */
+#task-list li {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 194, 209, 0.3); /* Semi-transparent pink */
+    margin-bottom: 10px; /* Space between tasks */
+    padding: 12px 15px;
+    border-radius: 30px; /* Rounded ends */
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+/* Subtle shadow when hovering over tasks */
+#task-list li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom checkbox styling */
+#task-list li .checkbox {
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+    background: transparent;
+    border-radius: 50%; /* Circular checkbox */
+    appearance: none; /* Hides default checkbox */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 10px;
+}
+
+/* Checkbox when checked */
+#task-list li .checkbox:checked {
+    background: #ff6f91; /* Pink background */
+    transform: scale(1.1); /* Slightly bigger */
+}
+
+/* Custom checkmark for our checkbox */
+#task-list li .checkbox:checked::before {
+    content: '\2713'; /* Unicode checkmark */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+/* The actual task text */
+.task-text {
+    flex: 1; /* Takes up remaining space */
+    margin: 0 10px;
+    word-break: break-word; /* Prevents long words from overflowing */
+}
+
+/* Completed task styling */
+.task-text.completed {
+    text-decoration: line-through;
+    color: #bcbcbc; /* Grayed out */
+}
+
+/* Container for edit/delete buttons */
+.task-actions {
+    display: flex;
+    gap: 8px; /* Space between buttons */
+}
+
+/* Edit and delete buttons */
+.task-actions button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    padding: 5px;
+    border-radius: 50%; /* Circular buttons */
+    width: 30px;
+    height: 30px;
+}
+
+/* Button hover effects */
+.task-actions button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Light white overlay */
+    transform: scale(1.1); /* Slightly bigger */
+}
+
+/* The "no tasks" image */
+.empty-image {
+    width: 200px;
+    display: none; /* Hidden by default */
+    margin-top: 20px;
+}
